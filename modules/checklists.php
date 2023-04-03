@@ -26,7 +26,7 @@
                     <!-- VYRO -->
                     <tr>
                         <td>
-                            <a href="../modules/checklists/shoelife-checklist.html">Vyro</a>
+                            <a href="#">Vyro</a>
                         </td>
                         <td>Website Go live</td>
                         <td>
@@ -38,7 +38,7 @@
                     <!-- DQ -->
                     <tr>
                         <td>
-                            <a href="../modules/checklists/shoelife-checklist.html">Diabetes Qualified</a>
+                            <a href="../modules/checklists/dq-checklists.php">Diabetes Qualified</a>
                         </td>
                         <td>Website Maintenance</td>
                         <td>
@@ -50,7 +50,7 @@
                     <!-- LGI -->
                     <tr>
                         <td>
-                            <a href="../modules/checklists/shoelife-checklist.html">Langley Group Institute</a>
+                            <a href="#">Langley Group Institute</a>
                         </td>
                         <td>Website Maintenance</td>
                         <td>
@@ -62,7 +62,7 @@
                     <!-- SL -->
                     <tr>
                         <td>
-                            <a href="../modules/checklists/shoelife-checklist.html">Shoe Life</a>
+                            <a href="../modules/checklists/shoelife-checklist.php">Shoe Life</a>
                         </td>
                         <td>Shopify Go-Live</td>
                         <td>

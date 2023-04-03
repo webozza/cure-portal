@@ -38,7 +38,7 @@
                         <tr>
                             <th>Date</th>
                             <th>Project</th>
-                            <th>Uploads</th>
+                            <th>Briefing</th>
                         </tr>
                         <!-- VYRO -->
                         <tr>
@@ -47,9 +47,8 @@
                                 <a href="#">Vyro</a>
                             </td>
                             <td>
-                                <a target="_blank"
-                                    href="../uploads/Vyro_Digital Advertising Brief_Initial setup.pdf">Vyro_Digital
-                                    Advertising Brief_Initial setup.pdf</a>
+                                <a target="_blank" href="../modules/briefing/vyro.php">Digital Advertising
+                                    Brief</a>
                             </td>
                         </tr>
                         <!-- DQ -->
@@ -97,7 +96,7 @@
                 <div style="display: none" class="cure-field-group select-template-container">
                     <div class="radio-box left-box">
                         <input type="radio" id="html" name="fav_language" value="HTML" />
-                        <label for="html">Branding Template</label><br />
+                        <label for="html">Advertising Template</label><br />
                         <div class="check"></div>
                     </div>
                     <div class="radio-box center-box">

@@ -7,7 +7,7 @@
 <body>
     <div class="main">
         <!-- Modules List -->
-        <?php include('../header.php') ?>
+        <?php include('../sidebar.php') ?>
 
         <!-- Panel -->
         <div class="panel">
@@ -54,7 +54,7 @@
                         </tr>
                         <!-- VYRO -->
                         <tr>
-                            <td><a href="client-reporting/vyro.html">Vyro</a></td>
+                            <td><a href="client-reporting/vyro.php">Vyro</a></td>
                             <td>$5.38k</td>
                             <td>102</td>
                             <td>$52.74</td>
@@ -63,7 +63,7 @@
                         <!-- DQ -->
                         <tr>
                             <td>
-                                <a href="client-reporting/diabetes-qualified.html">Diabetes Qualified</a>
+                                <a href="client-reporting/diabetes-qualified.php">Diabetes Qualified</a>
                             </td>
                             <td>$1.76k</td>
                             <td>68</td>
@@ -73,7 +73,7 @@
                         <!-- LGI -->
                         <tr>
                             <td>
-                                <a href="client-reporting/langley-group-institute.html">Langley Group Institute</a>
+                                <a href="client-reporting/langley-group-institute.php">Langley Group Institute</a>
                             </td>
                             <td>$4.26k</td>
                             <td>299</td>
@@ -82,7 +82,7 @@
                         </tr>
                         <!-- SL -->
                         <tr>
-                            <td><a href="client-reporting/shoe-life.html">Shoe Life</a></td>
+                            <td><a href="client-reporting/shoe-life.php">Shoe Life</a></td>
                             <td>$936</td>
                             <td>99</td>
                             <td>$9.36</td>
