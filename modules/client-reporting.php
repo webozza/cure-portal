@@ -7,7 +7,8 @@
 <body>
     <div class="main">
         <!-- Modules List -->
-        <?php include('../sidebar.php') ?>
+        <?php include('../header.php') ?>
+
         <!-- Panel -->
         <div class="panel">
             <div class="panel-head">
