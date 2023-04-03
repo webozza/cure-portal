@@ -23,7 +23,7 @@
                         <div class="card-head">
                             <h3>CPA above Target</h3>
                             <select>
-                                <option>Week to Date test</option>
+                                <option>Week to Date</option>
                                 <option>Month to Date</option>
                                 <option>Last Week</option>
                                 <option>Last Month</option>
