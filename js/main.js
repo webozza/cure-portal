@@ -156,16 +156,16 @@ let addBriefModal = () => {
 
 cpaStatus();
 modalOpenClose();
-forServerOnly();
+// forServerOnly();
 removeOnApproval();
 
 // Conditionally Run
 let currentLoc = window.location.href;
 let curePages = {
-  module_reporting: "client-reporting.html",
+  module_reporting: "client-reporting.php",
   module_checklists_single: "/checklists/",
-  module_users: "users.html",
-  module_brief: "briefing.html",
+  module_users: "users.php",
+  module_brief: "briefing.php",
 };
 
 if (currentLoc.indexOf(curePages.module_reporting) > -1) {
