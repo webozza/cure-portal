@@ -47,7 +47,7 @@
                                 <a href="#">Vyro</a>
                             </td>
                             <td>
-                                <a target="_blank" href="../modules/briefing/vyro.php">Digital Advertising
+                                <a href="../modules/briefing/vyro-digital-advertising-brief.php">Digital Advertising
                                     Brief</a>
                             </td>
                         </tr>

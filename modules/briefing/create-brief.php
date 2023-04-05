@@ -6,7 +6,7 @@
 
 <!-- BODY -->
 
-<body class="single-checklist ads-templates">
+<body class="brief-template">
     <div class="main">
         <!-- Modules List -->
         <?php include('../../sidebar.php') ?>

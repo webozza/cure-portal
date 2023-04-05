@@ -2,6 +2,29 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Temp
+------------------------------------------------------------*/
+.temp-img {
+  width: 100%;
+}
+.brief-template .cure-table {
+  width: 100%;
+}
+.brief-template tr td:last-child {
+  padding: 0;
+}
+.brief-template tr td:last-child input {
+  height: 100px;
+  width: 100%;
+}
+
+/* Brief Template
+------------------------------------------------------------*/
+.brief-template tr td {
+  width: 50%;
+  border: 1px solid #d1d1d1;
+}
+
 /* Variables
 ------------------------------------------------------------*/
 :root {
