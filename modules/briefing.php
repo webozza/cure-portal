@@ -80,36 +80,36 @@
                         "client overview has been completed".</i>
                 </p>
             </div>
-            <form>
+            <form id="brief-form" method="post" action="<?= $curepath . 'modules/briefing/create-brief.php'?>">
                 <!-- SELECT TEMPLATE -->
-                <div class="cure-field-group select-brief-project">
-                    <select>
-                        <option value="" disabled selected>Select Project</option>
-                        <option value="metluma">Metluma</option>
-                        <option value="vyro">Vyro</option>
-                        <option value="treehouse">Treehouse</option>
-                    </select>
-                </div>
-
-                <div class="error-message"></div>
-
-                <div style="display: none" class="cure-field-group select-template-container">
+                <div class="cure-field-group select-template-container">
                     <div class="radio-box left-box">
-                        <input type="radio" id="html" name="fav_language" value="HTML" />
+                        <input type="radio" id="html" name="fav_language" value="advertising" />
                         <label for="html">Advertising Template</label><br />
                         <div class="check"></div>
                     </div>
                     <div class="radio-box center-box">
-                        <input type="radio" id="css" name="fav_language" value="CSS" />
+                        <input type="radio" id="css" name="fav_language" value="design" />
                         <label for="css">Design Template</label><br />
                         <div class="check"></div>
                     </div>
                     <div class="radio-box right-box">
-                        <input type="radio" id="javascript" name="fav_language" value="JavaScript" />
+                        <input type="radio" id="javascript" name="fav_language" value="wordpress" />
                         <label for="javascript">WordPress Template</label>
                         <div class="check"></div>
                     </div>
                 </div>
+
+                <div class="cure-field-group select-brief-project">
+                    <select>
+                        <option value="0" disabled selected>Select Client</option>
+                        <option value="client1">Client 1</option>
+                        <option value="client2">Client 2</option>
+                        <option value="client3">Client 3</option>
+                    </select>
+                </div>
+
+                <div class="error-message"></div>
 
                 <!-- TEXTAREA -->
                 <!-- <div class="cure-field-group">
@@ -121,7 +121,10 @@
             <label>Upload brief</label>
             <input type="file" />
           </div> -->
-                <button type="submit" class="btn-cure">+ Add</button>
+                <input type="hidden" name="brief_template" value="0">
+                <input type="hidden" name="brief_client" value="0">
+                <input type="hidden" name="create_brief" value="1">
+                <button type="submit" class="btn-cure">+ Create Brief</button>
             </form>
         </div>
     </div>

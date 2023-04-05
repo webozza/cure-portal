@@ -133,24 +133,55 @@ let addBriefModal = () => {
   // $(".select-brief-project select").select2();
   $(".select-brief-project select").change(function () {
     let selected = $(this).find(":selected").val();
-    if (selected == "vyro") {
+    if (selected == "client2") {
+      $(".brief-error-msg").remove();
       $(".error-message").hide();
-      $(".select-template-container").show();
-    } else if (selected == "metluma") {
+    } else if (selected == "client1") {
       $(".error-message").show();
       $(".error-message p").remove();
       $(".error-message").append(
         `<p style="color: red;">Client overview is not complete</p>`
       );
-      $(".select-template-container").hide();
-    } else if (selected == "treehouse") {
+      $(".brief-error-msg").remove();
+    } else if (selected == "client3") {
       $(".error-message").show();
       $(".error-message p").remove();
       $(".error-message").append(
         `<p style="color: red;">Client overview is complete but you are not the team leader for this project</p>`
       );
-      $(".select-template-container").hide();
+      $(".brief-error-msg").remove();
     }
+  });
+};
+
+let createBriefValidation = () => {
+  // Do not allow brief creation unless a brief template is selected
+  $("#brief-form").on("submit", function (e) {
+    e.preventDefault();
+    let briefTemplate = $('[name="brief_template"]').val();
+    let selectedClient = $(".select-brief-project select :selected").val();
+    if (briefTemplate == "0" && $(".brief-error-msg").length == 0) {
+      $(".brief-error-msg").remove();
+      $("#brief-form .btn-cure").after(`
+          <span class="brief-error-msg" style="color:red">No template selected</span>
+      `);
+    } else if (selectedClient == "0") {
+      $(".brief-error-msg").remove();
+      $("#brief-form .btn-cure").after(`
+          <span class="brief-error-msg" style="color:red">No client selected</span>
+      `);
+    }
+
+    if (briefTemplate !== "0" && selectedClient == "client2") {
+      $("#brief-form").unbind("submit");
+      $("#brief-form").trigger("submit");
+    }
+  });
+  // pass the selected template value to server
+  $(".select-template-container .radio-box label").click(function () {
+    $(".brief-error-msg").remove();
+    let selectedVal = $(this).parent().find("input").val();
+    $('[name="brief_template"]').val(selectedVal);
   });
 };
 
@@ -176,4 +207,5 @@ if (currentLoc.indexOf(curePages.module_reporting) > -1) {
   usersModule();
 } else if (currentLoc.indexOf(curePages.module_brief) > -1) {
   addBriefModal();
+  createBriefValidation();
 }

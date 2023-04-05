@@ -5,7 +5,7 @@
 
 <div class="sidebar">
     <div class="logo">
-        <a href="/">
+        <a href="/skel">
             <img src="/skel/img/logo.svg" />
         </a>
     </div>
