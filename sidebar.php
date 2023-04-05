@@ -1,12 +1,12 @@
 <?php
-        $curepath = '/cure-portal/';
-        $imgpath = '/cure-portal/img/';
+        $curepath = '/skel/';
+        $imgpath = '/skel/img/';
     ?>
 
 <div class="sidebar">
     <div class="logo">
         <a href="/">
-            <img src="/cure-portal/img/logo.svg" />
+            <img src="/skel/img/logo.svg" />
         </a>
     </div>
     <ul>

@@ -5,8 +5,8 @@
     <title>Cure Portal</title>
 
     <?php
-        $curepath = '/cure-portal/';
-        $imgpath = '/cure-portal/img/';
+        $curepath = '/skel/';
+        $imgpath = '/skel/img/';
     ?>
 
     <!-- Stylesheets -->
