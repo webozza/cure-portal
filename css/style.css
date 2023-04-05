@@ -36,6 +36,7 @@ html {
 
 /* Layout
 ------------------------------------------------------------*/
+
 body {
   font-family: var(--cure-font);
   margin: 0;
@@ -125,6 +126,10 @@ th {
 .sidebar .sidebar-inner {
   position: sticky;
   top: 20px;
+}
+.active-menu a {
+  color: blue !important;
+  font-weight: 500;
 }
 
 /* Panel
@@ -275,6 +280,24 @@ th {
 ------------------------------------------------------------*/
 .single-report .panel-head img {
   height: 42px;
+}
+.single-report-charts {
+  display: flex;
+  flex-direction: row;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+.single-report-charts > div {
+  width: 45%;
+  box-shadow: 0 0 7px rgba(0, 0, 0, 20%);
+  border-radius: 25px;
+  padding: 20px;
+}
+.single-report-charts .panel-headline {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
 }
 
 /* Highlights

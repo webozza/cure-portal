@@ -29,13 +29,6 @@ let modalOpenClose = () => {
   });
 };
 
-let forServerOnly = () => {
-  let currentLoc = window.location.href;
-  if (currentLoc.indexOf("/skel") > -1) {
-    $(".logo a").attr("href", "https://checklist.curedev.com.au/skel/");
-  }
-};
-
 let clientReportingChart = () => {
   const ctx = document.getElementById("clientReportingChart");
 
@@ -74,6 +67,136 @@ let clientReportingChart = () => {
           radius: 6,
           label: "SL",
           data: [12.74, 15.23, 20.21, 17.42, 15.62, 18.6, 12.6],
+          borderWidth: 1,
+        },
+      ],
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true,
+        },
+      },
+    },
+  });
+};
+
+let sbChartSL = () => {
+  let flowPos = [
+    "Sessions",
+    "Product Views",
+    "Add to Carts",
+    "Checkouts",
+    "Transactions",
+  ];
+  let flowData = [599, 287, 26, 10, 8];
+
+  new Chart("sbChartSL", {
+    type: "line",
+    data: {
+      labels: flowPos,
+      datasets: [
+        {
+          data: flowData,
+          label: "Users",
+          fill: false,
+          lineTension: 0,
+          radius: 6,
+          borderWidth: 1,
+        },
+      ],
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true,
+        },
+      },
+    },
+  });
+};
+
+let tsChartSL = () => {
+  let productList = ["OFFICE", "ELLA", "DUTY", "MAGIC"];
+  let salesPerc = [16.8, 16.5, 11.2, 10];
+
+  new Chart("tsChartSL", {
+    type: "bar",
+    data: {
+      labels: productList,
+      datasets: [
+        {
+          data: salesPerc,
+          label: "% of Total Sales",
+          fill: false,
+          lineTension: 0,
+          radius: 6,
+          borderWidth: 1,
+        },
+      ],
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true,
+        },
+      },
+    },
+  });
+};
+
+let stChartSL = () => {
+  let flowPos = ["Mon", "Tue", "Wed", "Thurs", "Fri", "Sat", "Sun"];
+  let flowData = [4, 36, 66, 84, 99, 115, 133];
+
+  new Chart("stChartSL", {
+    type: "line",
+    data: {
+      labels: flowPos,
+      datasets: [
+        {
+          data: flowData,
+          label: "% of $10K Weekly Sales Target",
+          fill: false,
+          lineTension: 0,
+          radius: 10,
+          borderWidth: 1,
+        },
+      ],
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true,
+        },
+      },
+    },
+  });
+};
+
+let cbcChartSL = () => {
+  let flowPos = ["Mon", "Tue", "Wed", "Thurs", "Fri", "Sat", "Sun"];
+  let flowData = [4, 36, 66, 84, 99, 115, 133];
+
+  new Chart("cbcChartSL", {
+    type: "bubble",
+    data: {
+      labels: flowPos,
+      datasets: [
+        {
+          data: "55",
+          label: "Facebook",
+          fill: false,
+          lineTension: 0,
+          radius: 10,
+          borderWidth: 1,
+        },
+        {
+          data: "80",
+          label: "Google",
+          fill: false,
+          lineTension: 0,
+          radius: 10,
           borderWidth: 1,
         },
       ],
@@ -185,15 +308,28 @@ let createBriefValidation = () => {
   });
 };
 
+let activeMenu = () => {
+  const pageTitle = $("h1").text();
+  $(".sidebar ul li a").each(function () {
+    let menuItem = $(this);
+    let menuName = $(this).text();
+
+    if (menuName == pageTitle) {
+      menuItem.parent().addClass("active-menu");
+    }
+  });
+};
+
+activeMenu();
 cpaStatus();
 modalOpenClose();
-// forServerOnly();
 removeOnApproval();
 
 // Conditionally Run
 let currentLoc = window.location.href;
 let curePages = {
   module_reporting: "client-reporting.php",
+  module_report_sl: "client-reporting/shoe-life.php",
   module_checklists_single: "/checklists/",
   module_users: "users.php",
   module_brief: "briefing.php",
@@ -208,4 +344,9 @@ if (currentLoc.indexOf(curePages.module_reporting) > -1) {
 } else if (currentLoc.indexOf(curePages.module_brief) > -1) {
   addBriefModal();
   createBriefValidation();
+} else if (currentLoc.indexOf(curePages.module_report_sl) > -1) {
+  sbChartSL();
+  tsChartSL();
+  stChartSL();
+  cbcChartSL();
 }

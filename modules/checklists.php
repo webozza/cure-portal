@@ -10,7 +10,7 @@
         <!-- Panel -->
         <div class="panel">
             <div class="panel-head">
-                <h1>Checklist</h1>
+                <h1>Checklists</h1>
             </div>
 
             <!-- Table View -->
