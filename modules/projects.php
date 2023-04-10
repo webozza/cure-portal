@@ -31,7 +31,7 @@
 
 <!-- BODY -->
 
-<body class="users">
+<body class="projects">
     <div class="main">
         <!-- Modules List -->
         <?php include('../sidebar.php') ?>
@@ -45,7 +45,11 @@
             <div class="panel-body">
                 <!-- Content Checklist -->
                 <div class="card-body">
-                    <table class="cure-table">
+                    <div class="search-projects">
+                        <input type="text" class="quicksearch" placeholder="Search" />
+                    </div>
+
+                    <table class="cure-table grid">
                         <!-- METLUMA -->
                         <!-- <tr>
                             <td>Metluma</td>
@@ -66,11 +70,16 @@
                                 <a href="#"><i class="flaticon-cogwheel"></i></a>
                             </td>
                         </tr> -->
-
+                        
                         <!-- The Project Loop -->
                         <?php foreach($cure_projects as $cure_project) { ?>
-                            <tr>
-                                <td style="background-color: <?= $cure_project->color ?>" data-project-id="<?= $cure_project->id ?>"><?= $cure_project->title ?></td>
+                            <tr class="element-item">
+                                <td data-project-id="<?= $cure_project->id ?>">
+                                    <div class="cure-project">
+                                        <div class="project-color" style="background-color: <?= $cure_project->color ?>"></div>
+                                        <h5 class="project-title"><?= $cure_project->title ?></h5>
+                                    </div>
+                                </td>
                             </tr>
                         <?php } ?>
 

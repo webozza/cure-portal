@@ -308,6 +308,43 @@ let createBriefValidation = () => {
   });
 };
 
+let projectFilter = () => {
+  // quick search regex
+  var qsRegex;
+
+  // init Isotope
+  var $grid = $(".grid").isotope({
+    itemSelector: ".element-item",
+    layoutMode: "fitRows",
+    filter: function () {
+      return qsRegex ? $(this).text().match(qsRegex) : true;
+    },
+  });
+
+  // use value of search field to filter
+  var $quicksearch = $(".quicksearch").keyup(
+    debounce(function () {
+      qsRegex = new RegExp($quicksearch.val(), "gi");
+      $grid.isotope();
+    }, 200)
+  );
+
+  // debounce so filtering doesn't happen every millisecond
+  function debounce(fn, threshold) {
+    var timeout;
+    threshold = threshold || 100;
+    return function debounced() {
+      clearTimeout(timeout);
+      var args = arguments;
+      var _this = this;
+      function delayed() {
+        fn.apply(_this, args);
+      }
+      timeout = setTimeout(delayed, threshold);
+    };
+  }
+};
+
 let activeMenu = () => {
   const pageTitle = $("h1").text();
   $(".sidebar ul li a").each(function () {
@@ -317,6 +354,33 @@ let activeMenu = () => {
     if (menuName == pageTitle) {
       menuItem.parent().addClass("active-menu");
     }
+  });
+};
+
+let singleReport = () => {
+  // Buttons
+  $(".single-report .cure-btn-wrapper button").click(function () {
+    let dataPanel = $(this).data("panel");
+    $(".single-report .cure-btn-wrapper button").removeClass("active");
+    $(this).addClass("active");
+
+    // actions
+    $(".panel-body").hide();
+    $(`.${dataPanel}`).fadeIn();
+  });
+
+  // Insights
+  $(".add-insight").click(function () {
+    let insightTxt = $(this).prev().val();
+    $(".report-insights ul").append(`<li>${insightTxt}</li>`);
+    $(this).prev().val("");
+  });
+
+  // Insights
+  $(".add-action").click(function () {
+    let actionTxt = $(this).prev().val();
+    $(".report-actions ul").append(`<li>${actionTxt}</li>`);
+    $(this).prev().val("");
   });
 };
 
@@ -333,6 +397,7 @@ let curePages = {
   module_checklists_single: "/checklists/",
   module_users: "users.php",
   module_brief: "briefing.php",
+  module_projects: "projects.php",
 };
 
 if (currentLoc.indexOf(curePages.module_reporting) > -1) {
@@ -349,4 +414,10 @@ if (currentLoc.indexOf(curePages.module_reporting) > -1) {
   tsChartSL();
   stChartSL();
   cbcChartSL();
+} else if (currentLoc.indexOf(curePages.module_projects) > -1) {
+  projectFilter();
+}
+
+if ($("body").hasClass("single-report")) {
+  singleReport();
 }

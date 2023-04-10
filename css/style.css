@@ -32,6 +32,7 @@ html {
   --cure-font: "Poppins", sans-serif;
   --link-color: rgba(116, 116, 116, 255);
   --card-hover-bg: rgba(0, 0, 0, 3%);
+  --cure-color: #fba53a;
 }
 
 /* Layout
@@ -82,7 +83,10 @@ th {
   transition: all 0.3s ease;
 }
 .btn-cure:hover {
-  background-color: var(--card-hover-bg);
+  background-color: var(--cure-color);
+}
+.btn-cure.active {
+  background-color: var(--cure-color);
 }
 .cure-filter {
   text-align: right;
@@ -573,4 +577,78 @@ th {
 }
 .right-box .check {
   background: #def;
+}
+
+/* Projects */
+.cure-project .project-color {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.cure-project {
+  display: flex;
+  flex-direction: row;
+  column-gap: 10px;
+  align-items: center;
+}
+
+.projects .element-item {
+  min-width: 600px;
+}
+
+/* Reports
+----------------------------------------*/
+.report-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 50px;
+}
+.report-head img {
+  max-width: 135px;
+}
+.report-head .sub-headline {
+  color: var(--cure-color);
+}
+.single-report .report-container {
+  background-color: var(--cure-color);
+  padding: 40px;
+}
+.single-report .report-inner {
+  background-color: #fff;
+  border-radius: 7px;
+  padding: 30px;
+}
+.report-table th {
+  background-color: var(--cure-color);
+  border: 1px solid #000;
+}
+.report-table {
+  margin-left: auto;
+  font-size: 0.75em;
+}
+.report-table {
+  margin-left: auto;
+}
+.report-table td {
+  border: 1px solid #000;
+}
+.report-notes {
+  margin-top: 30px;
+}
+.report-insights {
+  margin-bottom: 20px;
+}
+.report-notes h5 {
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+.add-to-report-btn-wrapper .cure-field-group {
+  display: flex;
+  flex-direction: row;
+  column-gap: 20px;
+}
+.add-to-report-btn-wrapper .cure-field-group input {
+  width: 70%;
 }
