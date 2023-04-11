@@ -159,14 +159,14 @@
             CURLOPT_POSTFIELDS => '{
                 "event": {
                     "hours": '.$cure_task->logged_hours.',
-                    "minutes": 30,
+                    "minutes": '.$cure_task->logged_mins.',
                     "seconds": 0,
-                    "estimated_hours": 4,
+                    "estimated_hours": '.$cure_task->estimated_hours.',
                     "estimated_minutes": 0,
-                    "from": "2023-04-10T19:28:51.514+02:00",
-                    "to": "2023-04-10T22:58:51.514+02:00",
-                    "day": "2023-04-10",
-                    "note": "Testing API.",
+                    "from": "'.$cure_task->start_date.'T19:28:51.514+02:00",
+                    "to": "'.$cure_task->due_date.'T22:58:51.514+02:00",
+                    "day": "'.$cure_task->start_date.'",
+                    "note": "'.$cure_task->title.'",
                     "project_id": "4101173",
                     "user_id": "2134571"
                 }
