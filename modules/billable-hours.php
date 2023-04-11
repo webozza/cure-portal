@@ -155,7 +155,22 @@
             CURLOPT_FOLLOWLOCATION => true,
             CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
             CURLOPT_CUSTOMREQUEST => 'POST',
-            CURLOPT_POSTFIELDS =>'{"event":{"hours":'.$cure_task->logged_hours.',"minutes":'.$cure_task->logged_mins.',"seconds":0,"estimated_hours":'.$cure_task->estimated_hours.',"estimated_minutes":'.$cure_task->estimated_mins.',"from":"'.$cure_task->start_date.'T19:28:51.514+02:00","to":"'.$cure_task->due_date.'T22:58:51.514+02:00","day":'.$cure_task->start_date.',"note":'.$cure_task->title.',"project_id":"4101173","user_id":"2134571"}}',
+            // CURLOPT_POSTFIELDS =>'{"event":{"hours":'.$cure_task->logged_hours.',"minutes":'.$cure_task->logged_mins.',"seconds":0,"estimated_hours":'.$cure_task->estimated_hours.',"estimated_minutes":'.$cure_task->estimated_mins.',"from":"'.$cure_task->start_date.'T19:28:51.514+02:00","to":"'.$cure_task->due_date.'T22:58:51.514+02:00","day":'.$cure_task->start_date.',"note":'.$cure_task->title.',"project_id":"4101173","user_id":"2134571"}}',
+            CURLOPT_POSTFIELDS => array(
+                'event' => array(
+                    'hours' => $cure_task->logged_hours,
+                    'minutes' => $cure_task->logged_mins,
+                    'seconds' => 0,
+                    'estimated_hours' => $cure_task->estimated_hours,
+                    'estimated_minutes' => $cure_task->estimated_mins,
+                    'from' => ''.$cure_task->start_date.'T19:28:51.514+02:00',
+                    'to' => ''.$cure_task->due_date.'T19:28:51.514+02:00',
+                    'day' => ''.$cure_task->start_date.'',
+                    'not' => ''.$cure_task->title.'',
+                    'project_id' => '4101173',
+                    'user_id' => '2134571',
+                )
+            ),
             CURLOPT_HTTPHEADER => array(
                 'Content-Type: application/json',
                 'Authorization: Bearer '.$token->access_token.''
