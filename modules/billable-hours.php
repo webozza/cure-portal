@@ -31,7 +31,8 @@
 
     $token = curl_exec($curl);
     $token = json_decode($token);
-    echo $token['access_token'];
+    var_dump($token);
+    echo $token[0];
     curl_close($curl);
     
     // GET USERS
