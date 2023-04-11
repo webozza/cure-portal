@@ -31,31 +31,29 @@
 
     $token = curl_exec($curl);
     $token = json_decode($token);
-    var_dump($token);
-    echo $token->access_token;
     curl_close($curl);
     
     // GET USERS
-    // $curl = curl_init();
+    $curl = curl_init();
 
-    // curl_setopt_array($curl, array(
-    // CURLOPT_URL => 'https://api.timelyapp.com/1.1/1029812/users',
-    // CURLOPT_RETURNTRANSFER => true,
-    // CURLOPT_ENCODING => '',
-    // CURLOPT_MAXREDIRS => 10,
-    // CURLOPT_TIMEOUT => 0,
-    // CURLOPT_FOLLOWLOCATION => true,
-    // CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-    // CURLOPT_CUSTOMREQUEST => 'GET',
-    // CURLOPT_HTTPHEADER => array(
-    //     'Authorization: '.$token['access_token'].''
-    // ),
-    // ));
+    curl_setopt_array($curl, array(
+    CURLOPT_URL => 'https://api.timelyapp.com/1.1/1029812/users',
+    CURLOPT_RETURNTRANSFER => true,
+    CURLOPT_ENCODING => '',
+    CURLOPT_MAXREDIRS => 10,
+    CURLOPT_TIMEOUT => 0,
+    CURLOPT_FOLLOWLOCATION => true,
+    CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+    CURLOPT_CUSTOMREQUEST => 'GET',
+    CURLOPT_HTTPHEADER => array(
+        'Authorization: '.$token->access_token.''
+    ),
+    ));
 
-    // $response = curl_exec($curl);
+    $users = curl_exec($curl);
 
-    // curl_close($curl);
-    // echo $response;
+    curl_close($curl);
+    echo $users;
 
 } ?>
 
