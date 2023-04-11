@@ -47,7 +47,7 @@
     CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
     CURLOPT_CUSTOMREQUEST => 'GET',
     CURLOPT_HTTPHEADER => array(
-        'Authorization: '.trim($token->access_token).''
+        'Authorization: '.str_replace(' ', '', $token->access_token).''
     ),
     ));
 
@@ -67,7 +67,7 @@
         <div class="panel">
             <div class="panel-head">
                 <h1>Billable Hours</h1>
-                <?= trim($token->access_token) ?>
+                <?= str_replace(' ', '', $token->access_token) ?>
             </div>
         </div>
     </div>
