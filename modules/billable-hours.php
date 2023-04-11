@@ -163,7 +163,7 @@
                     "seconds": 0,
                     "estimated_hours": '.$cure_task->estimated_hours.',
                     "estimated_minutes": 0,
-                    "from": '$cure_task->start_date . 'T19:28:51.514+02:00'',
+                    "from": "'.$cure_task->start_date.'T19:28:51.514+02:00",
                     "to": "'.$cure_task->due_date.'T22:58:51.514+02:00",
                     "day": "'.$cure_task->start_date.'",
                     "note": "'.$cure_task->title.'",
@@ -200,7 +200,7 @@
             </div>
             <div class="panel-body">
                 <p></p>
-                <?= $cure_task->start_date . 'T19:28:51.514+02:00' ?>
+                <?= "$cure_task->start_date T19:28:51.514+02:00" ?>
             </div>
         </div>
     </div>
