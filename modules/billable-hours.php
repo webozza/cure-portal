@@ -103,11 +103,11 @@
     /* PH API
     --------------------------------------------------------------------*/
 
-    // GET TASKS for Vyro Retainer > Project Brief List
+    // GET TASKS for Vyro Retainer > Retainer task list
     $curl = curl_init();
 
     curl_setopt_array($curl, array(
-    CURLOPT_URL => 'https://curecollective.proofhub.com/api/v3/projects/7462242253/todolists',
+    CURLOPT_URL => 'https://curecollective.proofhub.com/api/v3/projects/7462242253/todolists/263121392337/tasks',
     CURLOPT_RETURNTRANSFER => true,
     CURLOPT_ENCODING => '',
     CURLOPT_MAXREDIRS => 10,
