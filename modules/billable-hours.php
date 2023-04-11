@@ -103,11 +103,11 @@
     /* PH API
     --------------------------------------------------------------------*/
 
-    // GET TASKS
+    // GET TASKS for Vyro Retainer > Project Brief List
     $curl = curl_init();
 
     curl_setopt_array($curl, array(
-    CURLOPT_URL => 'https://curecollective.proofhub.com/api/v3/projects/6326215218/todolists/245688837403/tasks',
+    CURLOPT_URL => 'https://curecollective.proofhub.com/api/v3/projects/7462201547/todolists/',
     CURLOPT_RETURNTRANSFER => true,
     CURLOPT_ENCODING => '',
     CURLOPT_MAXREDIRS => 10,
@@ -129,7 +129,7 @@
 
     // CREATE TASKS / EVENTS ON TIMELY WITH DATA FROM PH
     foreach($cure_tasks as $cure_task) {
-        var_dump($cure_task);
+        // var_dump($cure_task);
     }
 
 
