@@ -14,6 +14,9 @@
 <!-- Auth with Timely -->
 <?php if( isset($_GET['code']) ) {
     echo $_GET['code'];
+    echo 'fasdfasdf';
+} else {
+    echo 'else';
 } ?>
 
 
