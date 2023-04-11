@@ -29,6 +29,26 @@
     CURLOPT_CUSTOMREQUEST => 'POST',
     ));
 
+    $token = curl_exec($curl);
+    curl_close($curl);
+    
+    // GET USERS
+    $curl = curl_init();
+
+    curl_setopt_array($curl, array(
+    CURLOPT_URL => 'https://api.timelyapp.com/1.1/1029812/users',
+    CURLOPT_RETURNTRANSFER => true,
+    CURLOPT_ENCODING => '',
+    CURLOPT_MAXREDIRS => 10,
+    CURLOPT_TIMEOUT => 0,
+    CURLOPT_FOLLOWLOCATION => true,
+    CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+    CURLOPT_CUSTOMREQUEST => 'GET',
+    CURLOPT_HTTPHEADER => array(
+        'Authorization: '.$token['access_token'].''
+    ),
+    ));
+
     $response = curl_exec($curl);
 
     curl_close($curl);
@@ -37,7 +57,7 @@
 } ?>
 
 <!-- BODY -->
-<body class="billable-hours" style="display:none;">
+<body class="billable-hours">
     
     <div class="main">
         <!-- Modules List -->
