@@ -16,6 +16,8 @@
 
     // GET TOKEN
     $response_code = $_GET['code'];
+    $access_token = "";
+
     $curl = curl_init();
 
     curl_setopt_array($curl, array(
@@ -31,6 +33,7 @@
 
     $token = curl_exec($curl);
     $token = json_decode($token);
+    $access_token = $token->access_token;
     curl_close($curl);
     
     // GET USERS
@@ -46,14 +49,13 @@
     CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
     CURLOPT_CUSTOMREQUEST => 'GET',
     CURLOPT_HTTPHEADER => array(
-        'Authorization: '.$token->access_token.''
+        'Authorization: '.$access_token.''
     ),
     ));
 
     $users = curl_exec($curl);
-
+    echo '<script>let users = '.$users.'</script>';
     curl_close($curl);
-    echo $users;
 
 } ?>
 
