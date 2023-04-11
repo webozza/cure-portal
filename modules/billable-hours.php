@@ -25,25 +25,25 @@
     $response = curl_exec($curl);
 
     curl_close($curl);
-    echo $response;
+    var_dump($response);
     
-    $curl = curl_init();
+    // $curl = curl_init();
 
-    curl_setopt_array($curl, array(
-    CURLOPT_URL => 'https://api.timelyapp.com/1.1/oauth/token?client_id=pRVYnxXWTFYlo92q1Pw0PrmosVjg0UoLoABZoZXYe0s&client_secret=EQZi9DwhIQHi6W6gPSklmLnAqXY9NhmR1BUhcvWPiCk&redirect_uri=https://checklist.curedev.com.au/skel/modules/billable-hours.php&code=vxJ5XisbpBZ1NjoyQLKwj5vKVkzYvhOIqo5xtjyGNGU&grant_type=authorization_code',
-    CURLOPT_RETURNTRANSFER => true,
-    CURLOPT_ENCODING => '',
-    CURLOPT_MAXREDIRS => 10,
-    CURLOPT_TIMEOUT => 0,
-    CURLOPT_FOLLOWLOCATION => true,
-    CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-    CURLOPT_CUSTOMREQUEST => 'POST',
-    ));
+    // curl_setopt_array($curl, array(
+    // CURLOPT_URL => 'https://api.timelyapp.com/1.1/oauth/token?client_id=pRVYnxXWTFYlo92q1Pw0PrmosVjg0UoLoABZoZXYe0s&client_secret=EQZi9DwhIQHi6W6gPSklmLnAqXY9NhmR1BUhcvWPiCk&redirect_uri=https://checklist.curedev.com.au/skel/modules/billable-hours.php&code=vxJ5XisbpBZ1NjoyQLKwj5vKVkzYvhOIqo5xtjyGNGU&grant_type=authorization_code',
+    // CURLOPT_RETURNTRANSFER => true,
+    // CURLOPT_ENCODING => '',
+    // CURLOPT_MAXREDIRS => 10,
+    // CURLOPT_TIMEOUT => 0,
+    // CURLOPT_FOLLOWLOCATION => true,
+    // CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+    // CURLOPT_CUSTOMREQUEST => 'POST',
+    // ));
 
-    $response = curl_exec($curl);
+    // $response = curl_exec($curl);
 
-    curl_close($curl);
-    echo $response;
+    // curl_close($curl);
+    // echo $response;
 ?>
 
 <!-- BODY -->
