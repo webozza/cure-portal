@@ -2,7 +2,7 @@
 <html lang="en">
 
 <!-- HEAD -->
-<?php include($curepath . 'header.php') ?>
+<?php require('../header.php') ?>
 
 <script>
     let currentLoc = window.location.href;
@@ -31,7 +31,7 @@
 
     $token = curl_exec($curl);
     $token = json_decode($token);
-    var_dump($token);
+    var_dump($token['access_token']);
     curl_close($curl);
     
     // GET USERS
