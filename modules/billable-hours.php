@@ -164,7 +164,6 @@
 
             $response = curl_exec($curl);
             echo '<script>var postRes = '.$response.'</script>';
-            echo 'updated successfully';
             curl_close($curl);
         }
     }
@@ -184,10 +183,16 @@
                 <h1>Billable Hours</h1>
                 <?= str_replace(' ', '', $token->access_token) ?>
             </div>
+            <div class="panel-body">
+                <p></p>
+            </div>
         </div>
     </div>
 
     <!-- SCRIPTS -->
     <?php include($curepath . 'scripts.php') ?>
+    <script>
+        $('.panel-body p').text(postRes.errors.message);
+    </script>
 </body>
 </html>
