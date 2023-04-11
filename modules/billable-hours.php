@@ -127,9 +127,11 @@
     $cure_tasks = json_decode($cure_tasks);
     curl_close($curl);
 
-    // CREATE TASKS / EVENTS ON TIMELY WITH DATA FROM PH
+    // CREATE TASKS / EVENTS ON TIMELY WITH DATA FROM PH / FOR LEE ONLY
     foreach($cure_tasks as $cure_task) {
-        // var_dump($cure_task);
+        if($cure_task->assigned == [5752190760]) {
+            var_dump($cure_task);
+        }
     }
 
 
