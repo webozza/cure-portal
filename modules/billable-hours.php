@@ -37,8 +37,6 @@
     // GET USERS
     $curl = curl_init();
 
-    echo $token->access_token;
-
     curl_setopt_array($curl, array(
     CURLOPT_URL => 'https://api.timelyapp.com/1.1/1029812/users',
     CURLOPT_RETURNTRANSFER => true,
@@ -49,7 +47,7 @@
     CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
     CURLOPT_CUSTOMREQUEST => 'GET',
     CURLOPT_HTTPHEADER => array(
-        'Authorization: '.str_replace(' ', '', $token->access_token).''
+        'Authorization: Bearer '.$token->access_token.''
     ),
     ));
 
