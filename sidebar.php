@@ -15,6 +15,6 @@
         <li><a href="<?= $curepath . 'modules/briefing.php'?>">Briefing</a></li>
         <li><a href="<?= $curepath . 'modules/users.php'?>">Users</a></li>
         <li><a href="<?= $curepath . 'modules/projects.php'?>">Projects</a></li>
-        <li><a href="<?= $curepath . 'modules/billable-hours.php'?>">Billable Hours</a></li>
+        <li><a href="<?= $curepath . 'modules/billable-hours.php'?>">Sync Timely & PH</a></li>
     </ul>
 </div>
