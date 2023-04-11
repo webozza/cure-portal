@@ -6,16 +6,11 @@
 
 <!-- Auth with Timely -->
 <?php
-
-    
-
     $redirect_uri = 'https://checklist.curedev.com.au/skel/modules/billable-hours.php';
     $client_id = 'pRVYnxXWTFYlo92q1Pw0PrmosVjg0UoLoABZoZXYe0s';
     $curl = curl_init();
 
     curl_setopt_array($curl, array(
-    // CURLOPT_URL => 'https://api.timelyapp.com/1.1/oauth/authorize?response_type=code
-    // &redirect_uri=' . $redirect_uri . '&client_id=' . $client_id,.
     CURLOPT_URL => 'https://api.timelyapp.com/1.1/oauth/authorize?response_type=code
     &redirect_uri=https://checklist.curedev.com.au/skel/modules/billable-hours.php&client_id=pRVYnxXWTFYlo92q1Pw0PrmosVjg0UoLoABZoZXYe0s',
     CURLOPT_RETURNTRANSFER => true,
