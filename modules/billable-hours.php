@@ -130,6 +130,20 @@
     // CREATE TASKS / EVENTS ON TIMELY WITH DATA FROM PH / FOR LEE ONLY
     foreach($cure_tasks as $cure_task) {
         if($cure_task->assigned == [5752190760]) {
+
+            // null validation
+            if($cure_task->logged_hours == null) {
+                $cure_task->logged_hours = 0;
+            } elseif($cure_task->logged_mins == null) {
+                $cure_task->logged_mins = 0;
+            } elseif($cure_task->estimated_hours == null) {
+                $cure_task->estimated_hours = 0;
+            } elseif($cure_task->estimated_mins == null) {
+                $cure_task->estimated_mins = 0;
+            } elseif($cure_task->estimated_mins == null) {
+                $cure_task->estimated_mins = 0;
+            }
+
             // Testing task creation
             $curl = curl_init();
             curl_setopt_array($curl, array(
@@ -149,7 +163,7 @@
             ));
 
             $response = curl_exec($curl);
-            echo '<script>let postRes = '.$response.'</script>';
+            echo '<script>var postRes = '.$response.'</script>';
             echo 'updated successfully';
             curl_close($curl);
         }
