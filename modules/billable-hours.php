@@ -55,6 +55,27 @@
     echo '<script>let users = '.$users.'</script>';
     curl_close($curl);
 
+    // GET PROJECTS
+    $curl = curl_init();
+
+    curl_setopt_array($curl, array(
+    CURLOPT_URL => 'https://api.timelyapp.com/1.1/1029812/projects',
+    CURLOPT_RETURNTRANSFER => true,
+    CURLOPT_ENCODING => '',
+    CURLOPT_MAXREDIRS => 10,
+    CURLOPT_TIMEOUT => 0,
+    CURLOPT_FOLLOWLOCATION => true,
+    CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+    CURLOPT_CUSTOMREQUEST => 'GET',
+    CURLOPT_HTTPHEADER => array(
+        'Authorization: Bearer '.$token->access_token.''
+    ),
+    ));
+
+    $projects = curl_exec($curl);
+    echo '<script>let projects = '.$projects.'</script>';
+    curl_close($curl);
+
 } ?>
 
 <!-- BODY -->
