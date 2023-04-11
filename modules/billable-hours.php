@@ -127,6 +127,12 @@
     $cure_tasks = json_decode($cure_tasks);
     curl_close($curl);
 
+    // CREATE TASKS / EVENTS ON TIMELY WITH DATA FROM PH
+    foreach($cure_tasks as $cure_task) {
+        var_dump($cure_task);
+    }
+
+
 } ?>
 
 <!-- BODY -->
