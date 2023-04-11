@@ -175,10 +175,8 @@
     ));
 
     $response = curl_exec($curl);
-
+    echo '<script>let postRes = '.$response.'</script>';
     curl_close($curl);
-    echo $response;
-
 
 } ?>
 
