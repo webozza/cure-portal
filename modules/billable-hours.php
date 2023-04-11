@@ -200,7 +200,7 @@
             </div>
             <div class="panel-body">
                 <p></p>
-                <?= "$cure_task->start_date T19:28:51.514+02:00" ?>
+                <?= $cure_task->start_date . "T19:28:51.514+02:00" ?>
             </div>
         </div>
     </div>
