@@ -128,53 +128,33 @@
     curl_close($curl);
 
     // CREATE TASKS / EVENTS ON TIMELY WITH DATA FROM PH / FOR LEE ONLY
-    // foreach($cure_tasks as $cure_task) {
-    //     if($cure_task->assigned == [5752190760]) {
-    //         $curl = curl_init();
-    //         curl_setopt_array($curl, array(
-    //         CURLOPT_URL => 'https://api.timelyapp.com/1.1/1029812/events',
-    //         CURLOPT_RETURNTRANSFER => true,
-    //         CURLOPT_ENCODING => '',
-    //         CURLOPT_MAXREDIRS => 10,
-    //         CURLOPT_TIMEOUT => 0,
-    //         CURLOPT_FOLLOWLOCATION => true,
-    //         CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-    //         CURLOPT_CUSTOMREQUEST => 'POST',
-    //         CURLOPT_POSTFIELDS => array('user_id' => '2134571','day' => '2023-04-11','hours' => '3','minutes' => '30','estimated_minutes' => '0','estimated_hours' => '4','note' => 'testing event creation from api','project_id' => '4101173'),
-    //         CURLOPT_HTTPHEADER => array(
-    //             'Authorization: Bearer '.$token->access_token.''
-    //         ),
-    //         ));
+    foreach($cure_tasks as $cure_task) {
+        if($cure_task->assigned == [5752190760]) {
+            // Testing task creation
+            $curl = curl_init();
+            curl_setopt_array($curl, array(
+            CURLOPT_URL => 'https://api.timelyapp.com/1.1/1029812/events',
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_ENCODING => '',
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 0,
+            CURLOPT_FOLLOWLOCATION => true,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => 'POST',
+            CURLOPT_POSTFIELDS =>'{"event":{"hours":'.$cure_task->logged_hours.',"minutes":'.$cure_task->logged_mins.',"seconds":0,"estimated_hours":'.$cure_task->estimated_hours.',"estimated_minutes":'.$cure_task->estimated_mins.',"from":"'.$cure_task->start_date.'T19:28:51.514+02:00","to":"'.$cure_task->due_date.'T22:58:51.514+02:00","day":'.$cure_task->start_date.',"note":'.$cure_task->title.',"project_id":"4101173","user_id":"2134571"}}',
+            CURLOPT_HTTPHEADER => array(
+                'Content-Type: application/json',
+                'Authorization: Bearer '.$token->access_token.''
+            ),
+            ));
 
-    //         $response = curl_exec($curl);
+            $response = curl_exec($curl);
+            echo '<script>let postRes = '.$response.'</script>';
+            echo 'updated successfully';
+            curl_close($curl);
+        }
+    }
 
-    //         curl_close($curl);
-    //         echo $response;
-    //     }
-    // }
-
-    // Testing task creation
-    $curl = curl_init();
-    curl_setopt_array($curl, array(
-    CURLOPT_URL => 'https://api.timelyapp.com/1.1/1029812/events',
-    CURLOPT_RETURNTRANSFER => true,
-    CURLOPT_ENCODING => '',
-    CURLOPT_MAXREDIRS => 10,
-    CURLOPT_TIMEOUT => 0,
-    CURLOPT_FOLLOWLOCATION => true,
-    CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-    CURLOPT_CUSTOMREQUEST => 'POST',
-    CURLOPT_POSTFIELDS =>'{"event":{"hours":3,"minutes":30,"seconds":0,"estimated_hours":4,"estimated_minutes":0,"from":"2023-04-10T19:28:51.514+02:00","to":"2023-04-10T22:58:51.514+02:00","day":"2023-04-10","note":"Notes for testing with some random #hash in it.","project_id":"4101173","user_id":"2134571"}}',
-    CURLOPT_HTTPHEADER => array(
-        'Authorization: Bearer '.$token->access_token.''
-    ),
-    ));
-
-    $response = curl_exec($curl);
-    // echo '<script>let postRes = '.$response.'</script>';
-    curl_close($curl);
-    //echo $response;
-    echo $token->access_token;
 
 } ?>
 
