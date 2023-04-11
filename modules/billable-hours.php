@@ -10,7 +10,7 @@
     $curl = curl_init();
 
     curl_setopt_array($curl, array(
-    CURLOPT_URL => 'https://api.timelyapp.com/1.1/oauth/authorize?response_type=code%0A&redirect_uri=urn:ietf:wg:oauth:2.0:oob&client_id=pRVYnxXWTFYlo92q1Pw0PrmosVjg0UoLoABZoZXYe0s%0A%0A',
+    CURLOPT_URL => 'https://api.timelyapp.com/1.1/oauth/authorize?response_type=code%0A&redirect_uri=https://checklist.curedev.com.au/skel/modules/billable-hours.php&client_id=pRVYnxXWTFYlo92q1Pw0PrmosVjg0UoLoABZoZXYe0s%0A%0A',
     CURLOPT_RETURNTRANSFER => true,
     CURLOPT_ENCODING => '',
     CURLOPT_MAXREDIRS => 10,
