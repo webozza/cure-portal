@@ -164,7 +164,11 @@
     CURLOPT_FOLLOWLOCATION => true,
     CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
     CURLOPT_CUSTOMREQUEST => 'POST',
-    CURLOPT_POSTFIELDS => array('user_id' => '2134571','day' => '2023-04-11','hours' => '3','minutes' => '30','estimated_minutes' => '0','estimated_hours' => '4','note' => 'testing event creation from api','project_id' => '4101173'),
+    CURLOPT_POSTFIELDS => array(
+        'events' => array(
+            'user_id' => '2134571','day' => '2023-04-11','hours' => '3','minutes' => '30','estimated_minutes' => '0','estimated_hours' => '4','note' => 'testing event creation from api','project_id' => '4101173'
+        )
+    ),
     CURLOPT_HTTPHEADER => array(
         'Authorization: Bearer '.$token->access_token.''
     ),
