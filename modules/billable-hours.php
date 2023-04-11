@@ -30,6 +30,7 @@
     ));
 
     $token = curl_exec($curl);
+    $token = json_decode($token);
     echo $token['access_token'];
     curl_close($curl);
     
@@ -58,7 +59,7 @@
 } ?>
 
 <!-- BODY -->
-<body class="billable-hours" style="display:none;">
+<body class="billable-hours">
     
     <div class="main">
         <!-- Modules List -->
