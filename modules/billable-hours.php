@@ -130,7 +130,26 @@
     // CREATE TASKS / EVENTS ON TIMELY WITH DATA FROM PH / FOR LEE ONLY
     foreach($cure_tasks as $cure_task) {
         if($cure_task->assigned == [5752190760]) {
-            var_dump($cure_task);
+            $curl = curl_init();
+            curl_setopt_array($curl, array(
+            CURLOPT_URL => 'https://api.timelyapp.com/1.1/1029812/events',
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_ENCODING => '',
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 0,
+            CURLOPT_FOLLOWLOCATION => true,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => 'POST',
+            CURLOPT_POSTFIELDS => array('user_id' => '2134571','day' => '','hours' => '','minutes' => '','estimated_minutes' => '','estimated_hours' => '','note' => '','project_id' => '4101173'),
+            CURLOPT_HTTPHEADER => array(
+                'Authorization: Bearer '.$token->access_token.''
+            ),
+            ));
+
+            $response = curl_exec($curl);
+
+            curl_close($curl);
+            echo $response;
         }
     }
 
