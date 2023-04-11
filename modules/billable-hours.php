@@ -164,18 +164,15 @@
     CURLOPT_FOLLOWLOCATION => true,
     CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
     CURLOPT_CUSTOMREQUEST => 'POST',
-    CURLOPT_POSTFIELDS => array(
-        'events' => array(
-            'user_id' => '2134571','day' => '2023-04-11','hours' => '3','minutes' => '30','estimated_minutes' => '0','estimated_hours' => '4','note' => 'testing event creation from api','project_id' => '4101173'
-        )
-    ),
+    CURLOPT_POSTFIELDS =>'{"event":{"hours":3,"minutes":30,"seconds":0,"estimated_hours":4,"estimated_minutes":0,"from":"2022-04-10T19:28:51.514+02:00","to":"2022-04-10T22:58:51.514+02:00","day":"2022-04-10","note":"Notes for testing with some random #hash in it.","hour_rate":100,"internal_hour_rate":150,"timer_state":0,"created_from":"Web","updated_from":"Web","project_id":4014}}
+    ',
     CURLOPT_HTTPHEADER => array(
         'Authorization: Bearer '.$token->access_token.''
     ),
     ));
 
     $response = curl_exec($curl);
-    echo '<script>let postRes = '.$response.'</script>';
+    // echo '<script>let postRes = '.$response.'</script>';
     curl_close($curl);
 
 } ?>
