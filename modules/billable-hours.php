@@ -57,7 +57,7 @@
 } ?>
 
 <!-- BODY -->
-<body class="billable-hours">
+<body class="billable-hours" style="display:none;">
     
     <div class="main">
         <!-- Modules List -->
