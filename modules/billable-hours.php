@@ -156,21 +156,25 @@
             CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
             CURLOPT_CUSTOMREQUEST => 'POST',
             // CURLOPT_POSTFIELDS =>'{"event":{"hours":'.$cure_task->logged_hours.',"minutes":'.$cure_task->logged_mins.',"seconds":0,"estimated_hours":'.$cure_task->estimated_hours.',"estimated_minutes":'.$cure_task->estimated_mins.',"from":"'.$cure_task->start_date.'T19:28:51.514+02:00","to":"'.$cure_task->due_date.'T22:58:51.514+02:00","day":'.$cure_task->start_date.',"note":'.$cure_task->title.',"project_id":"4101173","user_id":"2134571"}}',
-            CURLOPT_POSTFIELDS => array(
-                'event' => array(
-                    'hours' => $cure_task->logged_hours,
-                    'minutes' => $cure_task->logged_mins,
-                    'seconds' => 0,
-                    'estimated_hours' => $cure_task->estimated_hours,
-                    'estimated_minutes' => $cure_task->estimated_mins,
-                    'from' => ''.$cure_task->start_date.'T19:28:51.514+02:00',
-                    'to' => ''.$cure_task->due_date.'T19:28:51.514+02:00',
-                    'day' => ''.$cure_task->start_date.'',
-                    'not' => ''.$cure_task->title.'',
-                    'project_id' => '4101173',
-                    'user_id' => '2134571',
-                )
-            ),
+            CURLOPT_POSTFIELDS => '{
+                "event":{
+                   "hours":3,
+                   "minutes":30,
+                   "seconds":0,
+                   "estimated_hours":4,
+                   "estimated_minutes":0,
+                   "from":"2023-08-07T19:28:51.514+02:00",
+                   "to":"2023-08-07T22:58:51.514+02:00",
+                   "day":"2023-08-07",
+                   "note":"Testing api - rony.",
+                   "hour_rate":100,
+                   "internal_hour_rate":150,
+                   "timer_state":0,
+                   "created_from":"Web",
+                   "updated_from":"Web",
+                   "project_id":4014
+                }
+             }',
             CURLOPT_HTTPHEADER => array(
                 'Content-Type: application/json',
                 'Authorization: Bearer '.$token->access_token.''
