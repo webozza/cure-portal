@@ -4,28 +4,18 @@
 <!-- HEAD -->
 <?php include($curepath . 'header.php') ?>
 
+<script>
+    window.location.href = 'https://api.timelyapp.com/1.1/oauth/authorize?response_type=code&redirect_uri=https://checklist.curedev.com.au/skel/modules/billable-hours.php&client_id=pRVYnxXWTFYlo92q1Pw0PrmosVjg0UoLoABZoZXYe0s';
+</script>
+
 <!-- Auth with Timely -->
+<?php if( isset($_GET['code']) ) {
+    echo $_GET['code'];
+} ?>
+
+
 <?php
-    $redirect_uri = 'https://checklist.curedev.com.au/skel/modules/billable-hours.php';
-    $client_id = 'pRVYnxXWTFYlo92q1Pw0PrmosVjg0UoLoABZoZXYe0s';
-    $curl = curl_init();
-
-    curl_setopt_array($curl, array(
-    CURLOPT_URL => 'https://api.timelyapp.com/1.1/oauth/authorize?response_type=code
-    &redirect_uri=https://checklist.curedev.com.au/skel/modules/billable-hours.php&client_id=pRVYnxXWTFYlo92q1Pw0PrmosVjg0UoLoABZoZXYe0s',
-    CURLOPT_RETURNTRANSFER => true,
-    CURLOPT_ENCODING => '',
-    CURLOPT_MAXREDIRS => 10,
-    CURLOPT_TIMEOUT => 0,
-    CURLOPT_FOLLOWLOCATION => true,
-    CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-    CURLOPT_CUSTOMREQUEST => 'GET',
-    ));
-
-    $response = curl_exec($curl);
-
-    curl_close($curl);
-    var_dump($response);
+    
     
     // $curl = curl_init();
 
