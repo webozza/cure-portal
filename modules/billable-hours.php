@@ -67,7 +67,7 @@
         <div class="panel">
             <div class="panel-head">
                 <h1>Billable Hours</h1>
-                <?= $token->access_token ?>
+                <?= trim($token->access_token) ?>
             </div>
         </div>
     </div>
