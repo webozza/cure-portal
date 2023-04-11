@@ -34,7 +34,7 @@
         $curl = curl_init();
 
         curl_setopt_array($curl, array(
-        CURLOPT_URL => 'https://api.timelyapp.com/1.1/oauth/token?redirect_uri=urn:ietf:wg:oauth:2.0:oob&code=khEvbirQ_FV49uU5qcqehrsubSO6fw5WfhWqKNCtrGU&client_id=pRVYnxXWTFYlo92q1Pw0PrmosVjg0UoLoABZoZXYe0s&client_secret=EQZi9DwhIQHi6W6gPSklmLnAqXY9NhmR1BUhcvWPiCk&grant_type=hQaToT1fbyQFe9JDp4qrZe9nHzCAQZtLI45-UsIeD5Y',
+        CURLOPT_URL => 'https://api.timelyapp.com/1.1/oauth/token?redirect_uri=https://checklist.curedev.com.au/skel/modules/billable-hours.php&code='.$_GET['code'].'&client_id=pRVYnxXWTFYlo92q1Pw0PrmosVjg0UoLoABZoZXYe0s&client_secret=EQZi9DwhIQHi6W6gPSklmLnAqXY9NhmR1BUhcvWPiCk&grant_type='.$_GET['code'].'',
         CURLOPT_RETURNTRANSFER => true,
         CURLOPT_ENCODING => '',
         CURLOPT_MAXREDIRS => 10,
