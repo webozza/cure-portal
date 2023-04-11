@@ -5,7 +5,10 @@
 <?php include($curepath . 'header.php') ?>
 
 <script>
-    window.location.href = 'https://api.timelyapp.com/1.1/oauth/authorize?response_type=code&redirect_uri=https://checklist.curedev.com.au/skel/modules/billable-hours.php&client_id=pRVYnxXWTFYlo92q1Pw0PrmosVjg0UoLoABZoZXYe0s';
+    let currentLoc = window.location.href;
+    if(currentLoc.indexOf('?code=') == -1) {
+        window.location.href = 'https://api.timelyapp.com/1.1/oauth/authorize?response_type=code&redirect_uri=https://checklist.curedev.com.au/skel/modules/billable-hours.php&client_id=pRVYnxXWTFYlo92q1Pw0PrmosVjg0UoLoABZoZXYe0s';
+    }
 </script>
 
 <!-- Auth with Timely -->
