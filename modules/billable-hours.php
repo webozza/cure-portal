@@ -223,14 +223,15 @@
         <!-- Panel -->
         <div class="panel">
             <div class="panel-head">
-                <h1>Billable Hours</h1>
+                <h1>PH -> Timely Sync</h1>
                 <?= str_replace(' ', '', $token->access_token) ?>
             </div>
             <div class="panel-body">
-                <p></p>
-                <?= 'estimated minutes' . $cure_task_total_mins ?>
+                <p style="color:red;"></p>
                 <br>
-                <?php var_dump($timely_task->title) ?>
+                <div>Tasks for Vyro - Retainer List assigned to Lee has been created...</div>
+                <br>
+                <div><i>Note: Update function hasn't been added it but if the tasks doesn't exist, it'll create it - that's where it is up to for now.</i></div>
             </div>
         </div>
     </div>
