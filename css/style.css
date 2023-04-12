@@ -666,9 +666,10 @@ th {
   flex-direction: column;
   row-gap: 20px;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   background-color: rgba(0, 0, 0, 90%);
   display: none;
+  padding-top: 20%;
 }
 .api-syncing h5 {
   color: #fff;

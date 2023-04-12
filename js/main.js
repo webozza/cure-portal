@@ -386,7 +386,7 @@ let singleReport = () => {
 
 let activateLoader = () => {
   $(".enable-loader").click(function () {
-    $(".api-syncing").fadeIn();
+    $(".api-syncing").fadeIn().css("display", "flex");
   });
 };
 
