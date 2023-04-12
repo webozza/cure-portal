@@ -146,65 +146,126 @@
 
     $timely_tasks = curl_exec($curl);
     echo '<script>let timelyTasks = '.$timely_tasks.'</script>';
+    $timely_tasks = json_decode($timely_tasks);
     curl_close($curl);
 
-    // CREATE TASKS / EVENTS ON TIMELY WITH DATA FROM PH / FOR LEE ONLY
-    foreach($cure_tasks as $cure_task) {
-        if($cure_task->assigned == [5752190760]) {
+    foreach($timely_tasks as $timely_task) {
+        if($timely_task->title != $cure_task->title) {
+            // CREATE TASKS / FORECASTS ON TIMELY WITH DATA FROM PH / FOR LEE ONLY
+            foreach($cure_tasks as $cure_task) {
+                if($cure_task->assigned == [5752190760]) {
 
-            // null validation
-            if($cure_task->logged_hours == null) {
-                $cure_task->logged_hours = 0;
-            } elseif($cure_task->logged_mins == null) {
-                $cure_task->logged_mins = 0;
-            } elseif($cure_task->estimated_hours == null) {
-                $cure_task->estimated_hours = 0;
-            } elseif($cure_task->estimated_mins == null) {
-                $cure_task->estimated_mins = 0;
-            } elseif($cure_task->estimated_mins == null) {
-                $cure_task->estimated_mins = 0;
-            }
+                    // null validation
+                    if($cure_task->logged_hours == null) {
+                        $cure_task->logged_hours = 0;
+                    } elseif($cure_task->logged_mins == null) {
+                        $cure_task->logged_mins = 0;
+                    } elseif($cure_task->estimated_hours == null) {
+                        $cure_task->estimated_hours = 0;
+                    } elseif($cure_task->estimated_mins == null) {
+                        $cure_task->estimated_mins = 0;
+                    } elseif($cure_task->estimated_mins == null) {
+                        $cure_task->estimated_mins = 0;
+                    }
 
-            $cure_task_hours_to_mins = $cure_task->estimated_hours * 60;
-            $cure_task_total_mins = $cure_task_hours_to_mins + $cure_task->estimated_mins;
+                    $cure_task_hours_to_mins = $cure_task->estimated_hours * 60;
+                    $cure_task_total_mins = $cure_task_hours_to_mins + $cure_task->estimated_mins;
 
-            $postData = array(
-                'forecast' => array(
-                    'from' => $cure_task->start_date,
-                    'to' => $cure_task->due_date,
-                    'estimated_minutes' => $cure_task_total_mins,
-                    'users' => array(
-                        ['id' => 2134571],
+                    $postData = array(
+                        'forecast' => array(
+                            'from' => $cure_task->start_date,
+                            'to' => $cure_task->due_date,
+                            'estimated_minutes' => $cure_task_total_mins,
+                            'users' => array(
+                                ['id' => 2134571],
+                            ),
+                            'project_id' => 4101173,
+                            'title' => $cure_task->title
+                        )
+                    );
+
+                    // Create the task
+                    $curl = curl_init();
+                    curl_setopt_array($curl, array(
+                    CURLOPT_URL => 'https://api.timelyapp.com/1.1/1029812/forecasts',
+                    CURLOPT_RETURNTRANSFER => true,
+                    CURLOPT_ENCODING => '',
+                    CURLOPT_MAXREDIRS => 10,
+                    CURLOPT_TIMEOUT => 0,
+                    CURLOPT_FOLLOWLOCATION => true,
+                    CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+                    CURLOPT_CUSTOMREQUEST => 'POST',
+                    CURLOPT_POSTFIELDS => json_encode($postData),
+                    CURLOPT_HTTPHEADER => array(
+                        'Content-Type: application/json',
+                        'Authorization: Bearer '.$token->access_token.''
                     ),
-                    'project_id' => 4101173,
-                    'title' => $cure_task->title
-                )
-            );
+                    ));
 
-            // Create the task
-            // $curl = curl_init();
-            // curl_setopt_array($curl, array(
-            // CURLOPT_URL => 'https://api.timelyapp.com/1.1/1029812/forecasts',
-            // CURLOPT_RETURNTRANSFER => true,
-            // CURLOPT_ENCODING => '',
-            // CURLOPT_MAXREDIRS => 10,
-            // CURLOPT_TIMEOUT => 0,
-            // CURLOPT_FOLLOWLOCATION => true,
-            // CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-            // CURLOPT_CUSTOMREQUEST => 'POST',
-            // CURLOPT_POSTFIELDS => json_encode($postData),
-            // CURLOPT_HTTPHEADER => array(
-            //     'Content-Type: application/json',
-            //     'Authorization: Bearer '.$token->access_token.''
-            // ),
-            // ));
+                    $response = curl_exec($curl);
+                    echo '<script>var postRes = '.$response.'</script>';
+                    curl_close($curl);
+                }
+            }
+        } else {
+            // UPDATE TASKS / FORECASTS ON TIMELY WITH DATA FROM PH / FOR LEE ONLY
+            foreach($cure_tasks as $cure_task) {
+                if($cure_task->assigned == [5752190760]) {
 
-            // $response = curl_exec($curl);
-            // echo '<script>var postRes = '.$response.'</script>';
-            // curl_close($curl);
+                    // null validation
+                    if($cure_task->logged_hours == null) {
+                        $cure_task->logged_hours = 0;
+                    } elseif($cure_task->logged_mins == null) {
+                        $cure_task->logged_mins = 0;
+                    } elseif($cure_task->estimated_hours == null) {
+                        $cure_task->estimated_hours = 0;
+                    } elseif($cure_task->estimated_mins == null) {
+                        $cure_task->estimated_mins = 0;
+                    } elseif($cure_task->estimated_mins == null) {
+                        $cure_task->estimated_mins = 0;
+                    }
+
+                    $cure_task_hours_to_mins = $cure_task->estimated_hours * 60;
+                    $cure_task_total_mins = $cure_task_hours_to_mins + $cure_task->estimated_mins;
+
+                    $postData = array(
+                        'forecast' => array(
+                            'from' => $cure_task->start_date,
+                            'to' => $cure_task->due_date,
+                            'estimated_minutes' => $cure_task_total_mins,
+                            'users' => array(
+                                ['id' => 2134571],
+                            ),
+                            'project_id' => 4101173,
+                            'title' => $cure_task->title
+                        )
+                    );
+
+                    // Update the tasks
+                    $curl = curl_init();
+                    curl_setopt_array($curl, array(
+                    CURLOPT_URL => 'https://api.timelyapp.com/1.1/1029812/forecasts/' . $timely_task->id,
+                    CURLOPT_RETURNTRANSFER => true,
+                    CURLOPT_ENCODING => '',
+                    CURLOPT_MAXREDIRS => 10,
+                    CURLOPT_TIMEOUT => 0,
+                    CURLOPT_FOLLOWLOCATION => true,
+                    CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+                    CURLOPT_CUSTOMREQUEST => 'PUT',
+                    CURLOPT_POSTFIELDS => json_encode($postData),
+                    CURLOPT_HTTPHEADER => array(
+                        'Content-Type: application/json',
+                        'Authorization: Bearer '.$token->access_token.''
+                    ),
+                    ));
+
+                    $response = curl_exec($curl);
+                    echo '<script>var postRes = '.$response.'</script>';
+                    curl_close($curl);
+                }
+            }
         }
     }
-
 
 } ?>
 
