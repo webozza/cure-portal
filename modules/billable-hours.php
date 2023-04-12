@@ -221,7 +221,7 @@
             </div>
             <div class="panel-body">
                 <p></p>
-                <?= $cure_task->start_date . "T19:28:51.514+02:00" ?>
+                <?= 'estimated minutes' . $cure_task_total_mins ?>
             </div>
         </div>
     </div>
