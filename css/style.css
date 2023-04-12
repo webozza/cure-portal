@@ -153,6 +153,9 @@ th {
   margin-bottom: 30px;
   justify-content: space-between;
 }
+.home .panel-head {
+  justify-content: unset;
+}
 .user-profile {
   width: 35px;
   border-radius: 50%;
