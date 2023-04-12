@@ -127,6 +127,27 @@
     $cure_tasks = json_decode($cure_tasks);
     curl_close($curl);
 
+    // CHECK EXISTING TASKS / FORECASTS
+    $curl = curl_init();
+
+    curl_setopt_array($curl, array(
+    CURLOPT_URL => 'https://api.timelyapp.com/1.1/1029812/forecasts',
+    CURLOPT_RETURNTRANSFER => true,
+    CURLOPT_ENCODING => '',
+    CURLOPT_MAXREDIRS => 10,
+    CURLOPT_TIMEOUT => 0,
+    CURLOPT_FOLLOWLOCATION => true,
+    CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+    CURLOPT_CUSTOMREQUEST => 'GET',
+    CURLOPT_HTTPHEADER => array(
+        'Authorization: Bearer '.$token->access_token.''
+    ),
+    ));
+
+    $timely_tasks = curl_exec($curl);
+    echo '<script>let timelyTasks = '.$timely_tasks.'</script>';
+    curl_close($curl);
+
     // CREATE TASKS / EVENTS ON TIMELY WITH DATA FROM PH / FOR LEE ONLY
     foreach($cure_tasks as $cure_task) {
         if($cure_task->assigned == [5752190760]) {
@@ -144,24 +165,6 @@
                 $cure_task->estimated_mins = 0;
             }
 
-            // CURLOPT_POSTFIELDS =>'{"event":{"hours":'.$cure_task->logged_hours.',"minutes":'.$cure_task->logged_mins.',"seconds":0,"estimated_hours":'.$cure_task->estimated_hours.',"estimated_minutes":'.$cure_task->estimated_mins.',"from":"'.$cure_task->start_date.'T19:28:51.514+02:00","to":"'.$cure_task->due_date.'T22:58:51.514+02:00","day":'.$cure_task->start_date.',"note":'.$cure_task->title.',"project_id":"4101173","user_id":"2134571"}}',
-
-            // $postData = array(
-            //     'event' => array(
-            //         'hours' => $cure_task->logged_hours,
-            //         'minutes' => $cure_task->logged_mins,
-            //         'seconds' => 0,
-            //         'estimated_hours' => $cure_task->estimated_hours,
-            //         'estimated_minutes' => $cure_task->estimated_mins,
-            //         'from' => $cure_task->start_date . "T19:28:51.514+02:00",
-            //         'to' => $cure_task->due_date . "T22:58:51.514+02:00",
-            //         'day' => $cure_task->start_date,
-            //         'note' => $cure_task->title,
-            //         'project_id' => 4101173,
-            //         'user_id' => 2134571,
-            //     )
-            // );
-
             $cure_task_hours_to_mins = $cure_task->estimated_hours * 60;
             $cure_task_total_mins = $cure_task_hours_to_mins + $cure_task->estimated_mins;
 
@@ -178,29 +181,27 @@
                 )
             );
 
-            // Testing task creation
-            $curl = curl_init();
-            curl_setopt_array($curl, array(
-            CURLOPT_URL => 'https://api.timelyapp.com/1.1/1029812/forecasts',
-            CURLOPT_RETURNTRANSFER => true,
-            CURLOPT_ENCODING => '',
-            CURLOPT_MAXREDIRS => 10,
-            CURLOPT_TIMEOUT => 0,
-            CURLOPT_FOLLOWLOCATION => true,
-            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-            CURLOPT_CUSTOMREQUEST => 'POST',
-            // CURLOPT_POSTFIELDS =>'{"event":{"hours":'.$cure_task->logged_hours.',"minutes":'.$cure_task->logged_mins.',"seconds":0,"estimated_hours":'.$cure_task->estimated_hours.',"estimated_minutes":'.$cure_task->estimated_mins.',"from":"'.$cure_task->start_date.'T19:28:51.514+02:00","to":"'.$cure_task->due_date.'T22:58:51.514+02:00","day":'.$cure_task->start_date.',"note":'.$cure_task->title.',"project_id":"4101173","user_id":"2134571"}}',
-            CURLOPT_POSTFIELDS => json_encode($postData),
-            // CURLOPT_POSTFIELDS => '{"forecast":{"from":"2022-05-10","to":"2022-05-16","estimated_minutes":150,"users":[{"id":2134571}],"project_id":4101173,"title":"Title"}}',
-            CURLOPT_HTTPHEADER => array(
-                'Content-Type: application/json',
-                'Authorization: Bearer '.$token->access_token.''
-            ),
-            ));
+            // Create the task
+            // $curl = curl_init();
+            // curl_setopt_array($curl, array(
+            // CURLOPT_URL => 'https://api.timelyapp.com/1.1/1029812/forecasts',
+            // CURLOPT_RETURNTRANSFER => true,
+            // CURLOPT_ENCODING => '',
+            // CURLOPT_MAXREDIRS => 10,
+            // CURLOPT_TIMEOUT => 0,
+            // CURLOPT_FOLLOWLOCATION => true,
+            // CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            // CURLOPT_CUSTOMREQUEST => 'POST',
+            // CURLOPT_POSTFIELDS => json_encode($postData),
+            // CURLOPT_HTTPHEADER => array(
+            //     'Content-Type: application/json',
+            //     'Authorization: Bearer '.$token->access_token.''
+            // ),
+            // ));
 
-            $response = curl_exec($curl);
-            echo '<script>var postRes = '.$response.'</script>';
-            curl_close($curl);
+            // $response = curl_exec($curl);
+            // echo '<script>var postRes = '.$response.'</script>';
+            // curl_close($curl);
         }
     }
 
