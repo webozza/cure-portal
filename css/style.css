@@ -668,7 +668,6 @@ th {
   align-items: center;
   justify-content: flex-start;
   background-color: rgba(0, 0, 0, 90%);
-  display: none;
   padding-top: 20%;
 }
 .api-syncing h5 {

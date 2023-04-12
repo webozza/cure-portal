@@ -207,7 +207,7 @@
                 ),
             ));
             $response = curl_exec($curl);
-            echo '<script>var postRes = '.$response.'</script>';
+            echo '<script>var postRes = '.$response.'; $(".api-syncing").hide();</script>';
             curl_close($curl);
         }
     }
@@ -235,8 +235,14 @@
         </div>
     </div>
 
+    <!-- LOADING SCREEN -->
+    <div class="api-syncing">
+        <img src="<?= $curepath . 'img/cure-loader.gif'?>">
+        <h5>Please hold on while we compare and push the tasks to timely...</h5>
+    </div>
+
     <!-- SCRIPTS -->
-    <?php include($curepath . 'scripts.php') ?>
+    <?php include('../scripts.php') ?>
     <script>
         $('.panel-body p').text(postRes.errors.message);
     </script>
