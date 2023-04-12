@@ -170,9 +170,9 @@
                     'from' => $cure_task->start_date,
                     'to' => $cure_task->due_date,
                     'estimated_minutes' => $cure_task_total_mins,
-                    'users' => array(
-                        'id' => 2134571
-                    ),
+                    // 'users' => array(
+                    //     'id' => 2134571
+                    // ),
                     'project_id' => 4101173,
                     'title' => $cure_task->title
                 )
