@@ -384,10 +384,17 @@ let singleReport = () => {
   });
 };
 
+let activateLoader = () => {
+  $(".enable-loader").click(function () {
+    $(".api-syncing").fadeIn();
+  });
+};
+
 activeMenu();
 cpaStatus();
 modalOpenClose();
 removeOnApproval();
+activateLoader();
 
 // Conditionally Run
 let currentLoc = window.location.href;
