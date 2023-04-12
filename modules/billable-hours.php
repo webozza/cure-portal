@@ -169,10 +169,10 @@
                 'forecast' => array(
                     'from' => $cure_task->start_date,
                     'to' => $cure_task->due_date,
-                    // 'estimated_minutes' => $cure_task_total_mins,
-                    // 'users' => array(
-                    //     'id' => 2134571
-                    // ),
+                    'estimated_minutes' => $cure_task_total_mins,
+                    'users' => array(
+                        'id' => 2134571
+                    ),
                     'project_id' => 4101173,
                     'title' => $cure_task->title
                 )
@@ -181,7 +181,7 @@
             // Testing task creation
             $curl = curl_init();
             curl_setopt_array($curl, array(
-            CURLOPT_URL => 'https://api.timelyapp.com/1.1/1029812/events',
+            CURLOPT_URL => 'https://api.timelyapp.com/1.1/1029812/forecasts',
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_ENCODING => '',
             CURLOPT_MAXREDIRS => 10,
