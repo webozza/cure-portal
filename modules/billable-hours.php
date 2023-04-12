@@ -169,7 +169,7 @@
                 'forecast' => array(
                     'from' => $cure_task->start_date,
                     'to' => $cure_task->due_date,
-                    'estimated_minutes' => $cure_task_total_mins,
+                    // 'estimated_minutes' => $cure_task_total_mins,
                     // 'users' => array(
                     //     'id' => 2134571
                     // ),
