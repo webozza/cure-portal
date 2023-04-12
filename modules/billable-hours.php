@@ -224,12 +224,11 @@
         <div class="panel">
             <div class="panel-head">
                 <h1>PH -> Timely Sync</h1>
-                <?= str_replace(' ', '', $token->access_token) ?>
             </div>
             <div class="panel-body">
                 <p style="color:red;"></p>
                 <br>
-                <div>Tasks for Vyro - Retainer List assigned to Lee has been created...</div>
+                <div style="color:green">Tasks for Vyro - Retainer List assigned to Lee has been created...</div>
                 <br>
                 <div><i>Note: Update function hasn't been added it but if the tasks doesn't exist, it'll create it - that's where it is up to for now.</i></div>
             </div>
