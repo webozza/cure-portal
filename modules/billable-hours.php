@@ -207,7 +207,7 @@
                 ),
             ));
             $response = curl_exec($curl);
-            echo '<script>var postRes = '.$response.'; $(".api-syncing").hide();</script>';
+            //echo '<script>var postRes = '.$response.'; $(".api-syncing").hide();</script>';
             curl_close($curl);
         }
     }
@@ -245,6 +245,7 @@
     <?php include('../scripts.php') ?>
     <script>
         $('.panel-body p').text(postRes.errors.message);
+        $(".api-syncing").hide();
     </script>
 </body>
 </html>
