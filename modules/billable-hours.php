@@ -149,9 +149,16 @@
     $timely_tasks = json_decode($timely_tasks);
     curl_close($curl);
 
+    // List out the task titles from ph and timely
+    $timely_task_titles = array();
+    $ph_task_titles = array();
+    foreach($timely_tasks as $timely_task) {
+        array_push($timely_task_titles, $timely_task->title);
+    }
+    
     // CREATE TASKS / FORECASTS ON TIMELY WITH DATA FROM PH / FOR LEE ONLY
     foreach($cure_tasks as $cure_task) {
-        if($cure_task->assigned == [5752190760]) {
+        if($cure_task->assigned == [5752190760] && !in_array($cure_task->title, $timely_task_titles)) {
 
             // null validation
             if($cure_task->logged_hours == null) {
@@ -182,30 +189,26 @@
                 )
             );
 
-            foreach($timely_tasks as $timely_task) {
-                if($timely_task->title != $cure_task->title) {
-                // Create the task
-                $curl = curl_init();
-                curl_setopt_array($curl, array(
-                CURLOPT_URL => 'https://api.timelyapp.com/1.1/1029812/forecasts',
-                CURLOPT_RETURNTRANSFER => true,
-                CURLOPT_ENCODING => '',
-                CURLOPT_MAXREDIRS => 10,
-                CURLOPT_TIMEOUT => 0,
-                CURLOPT_FOLLOWLOCATION => true,
-                CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-                CURLOPT_CUSTOMREQUEST => 'POST',
-                CURLOPT_POSTFIELDS => json_encode($postData),
-                CURLOPT_HTTPHEADER => array(
-                    'Content-Type: application/json',
-                    'Authorization: Bearer '.$token->access_token.''
-                    ),
-                ));
-                    $response = curl_exec($curl);
-                    echo '<script>var postRes = '.$response.'</script>';
-                    curl_close($curl);
-                }
-            }
+            // Create the task
+            $curl = curl_init();
+            curl_setopt_array($curl, array(
+            CURLOPT_URL => 'https://api.timelyapp.com/1.1/1029812/forecasts',
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_ENCODING => '',
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 0,
+            CURLOPT_FOLLOWLOCATION => true,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => 'POST',
+            CURLOPT_POSTFIELDS => json_encode($postData),
+            CURLOPT_HTTPHEADER => array(
+                'Content-Type: application/json',
+                'Authorization: Bearer '.$token->access_token.''
+                ),
+            ));
+            $response = curl_exec($curl);
+            echo '<script>var postRes = '.$response.'</script>';
+            curl_close($curl);
         }
     }
 
@@ -227,7 +230,7 @@
                 <p></p>
                 <?= 'estimated minutes' . $cure_task_total_mins ?>
                 <br>
-                <?= 'timely_tasks' . $timely_task->title ?>
+                <?php var_dump($timely_task->title) ?>
             </div>
         </div>
     </div>
