@@ -193,7 +193,7 @@
     </div>
 
     <!-- SCRIPTS -->
-    <script src="js/main.js"></script>
+    <?php include('scripts.php') ?>
 </body>
 
 </html>
