@@ -226,6 +226,8 @@
             <div class="panel-body">
                 <p></p>
                 <?= 'estimated minutes' . $cure_task_total_mins ?>
+                <br>
+                <?= 'timely_tasks' . $timely_task->title ?>
             </div>
         </div>
     </div>
