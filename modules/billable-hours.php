@@ -236,16 +236,15 @@
     </div>
 
     <!-- LOADING SCREEN -->
-    <div class="api-syncing">
-        <img src="<?= $curepath . 'img/cure-loader.gif'?>">
+    <!-- <div class="api-syncing">
+        <img src="img/cure-loader.gif">
         <h5>Please hold on while we compare and push the tasks to timely...</h5>
-    </div>
+    </div> -->
 
     <!-- SCRIPTS -->
     <?php include('../scripts.php') ?>
     <script>
-        $('.panel-body p').text(postRes.errors.message);
-        $(".api-syncing").hide();
+        // $('.panel-body p').text(postRes.errors.message);
     </script>
 </body>
 </html>
